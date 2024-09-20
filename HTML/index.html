@@ -68,104 +68,106 @@
         </div>
     </section>
 
-    <!-- Order Section -->
-    <div class="order">
-        <h2>Place Your Order</h2>
-        <form id="orderForm">
-            <div class="order-item">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" required>
+    <section id="order_reserve">
+        <!-- Order Section -->
+        <div class="order">
+            <h2>Place Your Order</h2>
+            <form id="orderForm">
+                <div class="order-item">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" required>
 
-                <label for="tableNumber">Table Number:</label>
-                <input type="text" id="tableNumber" required>
+                    <label for="tableNumber">Table Number:</label>
+                    <input type="text" id="tableNumber" required>
 
-                <label for="items">Select Items:</label>
-                <select id="items" required>
-                    <option value="">Select an item</option>
-                    <option value="coffee" data-price="3.00">Coffee - $3.00</option>
-                    <option value="pasta" data-price="10.00">Pasta - $10.00</option>
-                    <option value="salad" data-price="7.00">Salad - $7.00</option>
-                    <option value="pizza" data-price="12.00">Pizza - $12.00</option>
-                </select>
+                    <label for="items">Select Items:</label>
+                    <select id="items" required>
+                        <option value="">Select an item</option>
+                        <option value="coffee" data-price="3.00">Coffee - $3.00</option>
+                        <option value="pasta" data-price="10.00">Pasta - $10.00</option>
+                        <option value="salad" data-price="7.00">Salad - $7.00</option>
+                        <option value="pizza" data-price="12.00">Pizza - $12.00</option>
+                    </select>
 
-                <label for="quantity">Quantity:</label>
-                <select id="quantity" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <button type="button" id="addItem">Add to Order</button>
-            </div>
+                    <label for="quantity">Quantity:</label>
+                    <select id="quantity" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <button type="button" id="addItem">Add to Order</button>
+                </div>
 
-            <div class="order-summary">
-                <h3>Order Summary</h3>
-                <table id="orderTable">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">Total</td>
-                            <td id="totalPrice">$0.00</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <table id="orderTable">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">Total</td>
+                                <td id="totalPrice">$0.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
 
-            <button type="button" id="submitOrder">Submit Order</button>
-        </form>
+                <button type="button" id="submitOrder">Submit Order</button>
+            </form>
 
-        <div id="paymentModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Payment Details</h2>
-                <div id="paymentDetails"></div>
-                <h3>Total Amount: <span id="modalTotalPrice">$0.00</span></h3>
-                <div id="qrcode"></div>
-                <button id="payNow">Pay Now</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Reservation Section -->
-    <div class="reservation">
-        <h2>Make a Reservation</h2>
-        <form id="reservationForm">
-            <label for="nameRes">Your Name:</label>
-            <input type="text" id="nameRes" required>
-
-            <label for="mobileNumber">Mobile Number:</label>
-            <input type="text" id="mobileNumber" pattern="\d{10}" title="10-digit mobile number" required>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" required>
-
-            <label for="startTime">Start Time:</label>
-            <input type="time" id="startTime" required>
-
-            <label for="endTime">End Time:</label>
-            <input type="time" id="endTime" required>
-
-            <button type="button" id="submitReservation">Submit Reservation</button>
-        </form>
-
-        <div id="paymentModalRes" class="modal">
-            <div class="modal-content">
-                <span class="closeRes">&times;</span>
-                <h2>Reservation Details</h2>
-                <div id="reservationDetails"></div>
-                <h3>Total Amount: <span id="modalTotalPriceRes">$0.00</span></h3>
-                <div id="qrcodeRes"></div>
-                <button id="payNowRes">Pay Now</button>
+            <div id="paymentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Payment Details</h2>
+                    <div id="paymentDetails"></div>
+                    <h3>Total Amount: <span id="modalTotalPrice">$0.00</span></h3>
+                    <div id="qrcode"></div>
+                    <button id="payNow">Pay Now</button>
+                </div>
             </div>
         </div>
-    </div>
+
+        <!-- Reservation Section -->
+        <div class="reservation">
+            <h2>Make a Reservation</h2>
+            <form id="reservationForm">
+                <label for="nameRes">Your Name:</label>
+                <input type="text" id="nameRes" required>
+
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="text" id="mobileNumber" pattern="\d{10}" title="10-digit mobile number" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+
+                <label for="startTime">Start Time:</label>
+                <input type="time" id="startTime" required>
+
+                <label for="endTime">End Time:</label>
+                <input type="time" id="endTime" required>
+
+                <button type="button" id="submitReservation">Submit Reservation</button>
+            </form>
+
+            <div id="paymentModalRes" class="modal">
+                <div class="modal-content">
+                    <span class="closeRes">&times;</span>
+                    <h2>Reservation Details</h2>
+                    <div id="reservationDetails"></div>
+                    <h3>Total Amount: <span id="modalTotalPriceRes">$0.00</span></h3>
+                    <div id="qrcodeRes"></div>
+                    <button id="payNowRes">Pay Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Gallery Section -->
     <section id="gallery">
