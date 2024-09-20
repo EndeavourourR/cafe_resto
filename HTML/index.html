@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe & Resto</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+   <link rel="stylesheet" href="../CSS/index.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">OrderEase</a>
+            </div>
+            <span class="menu-toggle">&#9776;</span>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="content">
+            <h1>Discover the Taste of Happiness</h1>
+            <p>Indulge in our culinary delights and enjoy the finest dining experience.</p>
+            <button id="exploreMenu">Explore Menu</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="../assets/cups-coffee-with-crackers-pralines.jpg" alt="Coffee">
+                <h3>Coffee</h3>
+                <p>Rich and aromatic coffee brewed fresh daily.</p>
+                <span>$3.00</span>
+            </div>
+            <div class="menu-item">
+                <img src="../assets/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table.jpg" alt="Pasta">
+                <h3>Pasta</h3>
+                <p>Freshly made pasta with a variety of sauces.</p>
+                <span>$10.00</span>
+            </div>
+            <div class="menu-item">
+                <img src="../assets/plate-seafood-salad-with-sauce-modern-presentation-restaurant-food.jpg" alt="Salad">
+                <h3>Salad</h3>
+                <p>Fresh and crisp salads with seasonal ingredients.</p>
+                <span>$7.00</span>
+            </div>
+            <div class="menu-item">
+                <img src="../assets/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg" alt="Pizza">
+                <h3>Pizza</h3>
+                <p>Wood-fired pizza with gourmet toppings.</p>
+                <span>$12.00</span>
+            </div>
+
+        </div>
+    </section>
+    <div id="order_reserv">
+        
+    </div>
+
+    <!-- Order Section -->
+    <section id="order">
+        <h2>Place Your Order</h2>
+        <form id="orderForm">
+            <div class="order-item">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="tableNumber">Table Number:</label>
+                <input type="text" id="tableNumber" required>
+
+                <label for="items">Select Items:</label>
+                <select id="items" required>
+                    <option value="">Select an item</option>
+                    <option value="coffee" data-price="3.00">Coffee - $3.00</option>
+                    <option value="pasta" data-price="10.00">Pasta - $10.00</option>
+                    <option value="salad" data-price="7.00">Salad - $7.00</option>
+                    <option value="pizza" data-price="12.00">Pizza - $12.00</option>
+                </select>
+
+                <label for="quantity">Quantity:</label>
+                <select id="quantity" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button type="button" id="addItem">Add to Order</button>
+            </div>
+
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <table id="orderTable">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total</td>
+                            <td id="totalPrice">$0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <button type="button" id="submitOrder">Submit Order</button>
+        </form>
+
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Payment Details</h2>
+                <div id="paymentDetails"></div>
+                <h3>Total Amount: <span id="modalTotalPrice">$0.00</span></h3>
+                <div id="qrcode"></div>
+                <button id="payNow">Pay Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation">
+        <h2>Make a Reservation</h2>
+        <form id="reservationForm">
+            <label for="nameRes">Your Name:</label>
+            <input type="text" id="nameRes" required>
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="text" id="mobileNumber" pattern="\d{10}" title="10-digit mobile number" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="startTime">Start Time:</label>
+            <input type="time" id="startTime" required>
+
+            <label for="endTime">End Time:</label>
+            <input type="time" id="endTime" required>
+
+            <button type="button" id="submitReservation">Submit Reservation</button>
+        </form>
+
+        <div id="paymentModalRes" class="modal">
+            <div class="modal-content">
+                <span class="closeRes">&times;</span>
+                <h2>Reservation Details</h2>
+                <div id="reservationDetails"></div>
+                <h3>Total Amount: <span id="modalTotalPriceRes">$0.00</span></h3>
+                <div id="qrcodeRes"></div>
+                <button id="payNowRes">Pay Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <img src="https://via.placeholder.com/400x300?text=Cafe+Interior" alt="Cafe Interior">
+            <img src="https://via.placeholder.com/400x300?text=Coffee+and+Pastries" alt="Coffee and Pastries">
+            <img src="https://via.placeholder.com/400x300?text=Fine+Dining" alt="Fine Dining">
+            <img src="https://via.placeholder.com/400x300?text=Dessert+Display" alt="Dessert Display">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <button id="scrollUp">&#8593;</button>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Cafe & Restaurant. All rights reserved.</p>
+    </footer>
+
+<script src="../JS/index.js"></script>
+</body>
+
+</html>
