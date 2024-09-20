@@ -319,20 +319,35 @@
  }
 
  #order_reserve {
+     background: url('../assets/friends-eating-conversating-restaurant.jpg') no-repeat center center/cover;
+     position: relative;
+     background-attachment: fixed;
+     height: 100vh;
      display: flex;
-     padding: 10px;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     
+     display: flex;
+     align-items: center;
+     justify-content: center;
  }
 
  .order,
  .reservation {
-     width: 50em;
-     margin: 20px auto;
+     margin: 10px;
      padding: 20px;
      background-color: #2c2c2cc8;
      border-radius: 8px;
      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
  }
 
+ .order form,
+ .reservation form {
+     height: 40em;
+ }
+
+ /* 
 
  .order-item,
  .order-summary {
@@ -394,7 +409,7 @@
 
  tfoot {
      font-weight: bold;
- }
+ } */
 
  .modal {
      display: none;
@@ -434,9 +449,9 @@
 
 
  @media (max-width: 600px) {
-     #order {
-         margin: 10px;
-         padding: 15px;
+     #order_reserve {
+         display: flex;
+         flex-wrap: wrap;
      }
 
      button {
@@ -445,8 +460,9 @@
 
      input[type="text"],
      select {
-         font-size: 16px;
+         font-size: 15px;
      }
+
  }
 
 
